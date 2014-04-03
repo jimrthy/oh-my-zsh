@@ -36,4 +36,3 @@ PROMPT='
 $(prompt_char) '
 
 RPROMPT='$(hg_prompt_info)$(git_prompt_info)'
-
