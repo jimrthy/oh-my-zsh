@@ -35,4 +35,6 @@ PROMPT='
 %{$fg[blue]%}%n@%M%{$reset_color%} at %{$fg[green]%}${PWD/#$HOME/~}%{$reset_color%}
 $(prompt_char) '
 
+#RPROMPT='$(hg_prompt_info)$(git_prompt_info)'
+#RPROMPT='$(git_prompt_info)'
 RPROMPT='$(hg_prompt_info)$(git_prompt_info)'
