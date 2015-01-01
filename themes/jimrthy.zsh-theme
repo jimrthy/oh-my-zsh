@@ -9,6 +9,25 @@ function prompt_char {
     git branch >/dev/null 2>/dev/null && echo '�' && return
     hg root >/dev/null 2>/dev/null && echo '�' && return
     echo '� '
+
+    # This definitely isn't what I want for the next 2. But this part
+    # works.
+
+    # mercurial repository
+    # original - bad symbols
+    # (shows the accented a w/ upside-down question mark)
+    #hg root >/dev/null 2>/dev/null && echo 'â¿' && return
+    # character out of range
+    #hg root >/dev/null 2>/dev/null && echo '\u263f' && return
+    #hg root >/dev/null 2>/dev/null && echo '?' && return
+    
+    # Plain prompt
+    # original - shows an accented a
+    #echo 'â'
+    # should be alt-code for black circle on white background
+    # character out of range
+    #echo '\u25cb'
+    #echo '>'
 }
 
 function hg_prompt_info {
@@ -37,6 +56,6 @@ PROMPT='
 %{$fg[blue]%}%n@%M%{$reset_color%} at %{$fg[green]%}${PWD/#$HOME/~}%{$reset_color%}
 $(prompt_char) '
 
-# This isn't working. Why not?
+# This breaks my right git prompt. Forget about it for now.
 #RPROMPT='$(hg_prompt_info)$(git_prompt_info)'
 RPROMPT='$(git_prompt_info)'
