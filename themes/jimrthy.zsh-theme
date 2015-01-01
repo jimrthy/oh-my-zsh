@@ -2,11 +2,32 @@
    #echo $(pwd | sed -e "s,^$HOME,~,")
 #}
 
-# What are the odds that these screwy characters work OK in my prompt?
+# Q: What are the odds that these screwy characters work OK in my prompt?
+# A: Depends on whether I'm using a term that supports Unicode.
+# Just use urxvt
 function prompt_char {
     git branch >/dev/null 2>/dev/null && echo '�' && return
     hg root >/dev/null 2>/dev/null && echo '�' && return
     echo '� '
+
+    # This definitely isn't what I want for the next 2. But this part
+    # works.
+
+    # mercurial repository
+    # original - bad symbols
+    # (shows the accented a w/ upside-down question mark)
+    #hg root >/dev/null 2>/dev/null && echo 'â¿' && return
+    # character out of range
+    #hg root >/dev/null 2>/dev/null && echo '\u263f' && return
+    #hg root >/dev/null 2>/dev/null && echo '?' && return
+    
+    # Plain prompt
+    # original - shows an accented a
+    #echo 'â'
+    # should be alt-code for black circle on white background
+    # character out of range
+    #echo '\u25cb'
+    #echo '>'
 }
 
 function hg_prompt_info {
