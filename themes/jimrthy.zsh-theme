@@ -30,6 +30,7 @@ function prompt_char {
     #echo '>'
 }
 
+# This breaks my right git prompt. Forget about it for now.
 function hg_prompt_info {
    hg prompt --angle-brackets "\
 < on %{$fg[magenta]%}<branch>%{$reset_color%}>\
