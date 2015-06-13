@@ -2,6 +2,7 @@
    #echo $(pwd | sed -e "s,^$HOME,~,")
 #}
 
+<<<<<<< 4f8574932f3a3a8a7f9cf87905934d79230adadf
 # Q: What are the odds that these screwy characters work OK in my prompt?
 # A: Depends on whether I'm using a term that supports Unicode.
 # Just use urxvt
@@ -9,6 +10,19 @@ function prompt_char {
     git branch >/dev/null 2>/dev/null && echo '±' && return
     hg root >/dev/null 2>/dev/null && echo '¿' && return
     echo '» '
+=======
+# What are the odds that these screwy characters work OK in my prompt?
+function prompt_char {
+    # git repository
+    # Original -- shows gibberish
+    #git branch >/dev/null 2>/dev/null && echo 'Ã‚Â±' && return
+    # alt-code 0177 should be +/-
+    # This works in mlterm, at least.
+    git branch >/dev/null 2>/dev/null && echo 'Â±' && return
+
+    hg root >/dev/null 2>/dev/null && echo 'â˜¿' && return
+    echo 'â—‹'
+>>>>>>> Add my theme
 
     # This definitely isn't what I want for the next 2. But this part
     # works.
@@ -56,6 +70,6 @@ PROMPT='
 %{$fg[blue]%}%n@%M%{$reset_color%} at %{$fg[green]%}${PWD/#$HOME/~}%{$reset_color%}
 $(prompt_char) '
 
-# This breaks my right git prompt. Forget about it for now.
+# This isn't working. Why not?
 #RPROMPT='$(hg_prompt_info)$(git_prompt_info)'
 RPROMPT='$(git_prompt_info)'
