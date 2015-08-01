@@ -38,5 +38,6 @@ PROMPT='
 $(prompt_char) '
 
 # This breaks my right git prompt. Forget about it for now.
+# This isn't working. Why not?
 #RPROMPT='$(hg_prompt_info)$(git_prompt_info)'
 RPROMPT='$(git_prompt_info)'
